@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            background: #202020;
+        }
+        #container{
+            position: absolute;
+            height: 600px;
+            width: 600px;
+            top: calc(50% - 300px);
+            left: calc(50% - 300px);
+        }
+        #container #sun{
+            position: absolute;
+            height: 150px;
+            width: 150px;
+            left: calc(50% - 75px);
+            top: calc(50% - 75px);
+            border-radius: 50%;
+            background: orangered;
+            -webkit-box-shadow: 0 0 30px white;
+                    box-shadow: 0 0 30px white;
+        }
+        #container .orbit{
+            position: absolute;
+            border-radius: 50%;
+            border-style: solid;
+            border-width: 1px 1px 0 0;
+            border-color: white transparent transparent transparent;
+            -webkit-transform-origin: center center;
+                    transform-origin: center center;
+            -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+        }
+        #container .orbit#earth-orbit{
+            top: 50px;
+            left: 50px;
+            height: 500px;
+            width: 500px;
+            -webkit-animation: orbit 14s linear infinite;
+                    animation: orbit 14s linear infinite;
+        }
+        #container .orbit#moon-orbit{
+            top: -34px;
+            right: -34px;
+            height: 120px;
+            width: 120px;
+            -webkit-animation: orbit 3.4s linear infinite;
+                    animation: orbit 3.4s linear infinite;
+        }
+        #container .globe{
+            position: absolute;
+            border-radius: 50%;
+        }
+        #container .globe#earth{
+            height: 50px;
+            width: 50px;
+            background: #0098e5;
+            top: 68px;
+            right: 34px;
+        }
+        #container .globe#moon{
+            height: 14px;
+            width: 14px;
+            background: gold;
+            top: 16px;
+            right: 7px;
+        }
+        @-webkit-keyframes orbit {
+            to {
+                -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+            }
+        }
+
+        @keyframes orbit {
+        to {
+            -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+        }
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sun"></div>
+        <div class="orbit" id="earth-orbit">
+            <div class="globe" id="earth">
+                <div class="orbit" id="moon-orbit">
+                    <div class="globe" id="moon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
